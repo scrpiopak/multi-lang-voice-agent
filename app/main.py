@@ -11,12 +11,25 @@ from app.tts import synthesize_speech
 
 app = FastAPI()
 
-# Serve UI
-app.mount("/static", StaticFiles(directory="static"), name="static")
+RUN_LOCALLY = False
 
-@app.get("/")
-async def index():
-    return FileResponse("static/index.html")
+if RUN_LOCALLY:
+    # Serve UI
+    app.mount("/static", StaticFiles(directory="static"), name="static")
+
+    @app.get("/")
+    async def index():
+        return FileResponse("static/index.html")
+
+else:
+    from fastapi.middleware.cors import CORSMiddleware
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["*"], # ["https://www.pakistanpipes.com"] If want to allow specific origins
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
 @app.post("/voice")
 async def voice_endpoint(audio: UploadFile = File(...)):

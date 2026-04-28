@@ -24,3 +24,12 @@ PROJECT INFO. & REQUIREMENTS
     cd voice-agent 
     uv add fastapi uvicorn python-dotenv groq 
     uv run uvicorn app.main:app --reload --port 8000
+
+FOR RAILWAY DEPLOYMENT
+
+(1) upload index.html to any web hosting server
+
+(2) generate requirements.txt with uv pip freeze > requirements.txt 
+
+(3) Create Procfile with no extension having followin code to tell Railway exactly how to run your FastAPI app.
+    web: uvicorn app.main:app --host 0.0.0.0 --port $PORT
