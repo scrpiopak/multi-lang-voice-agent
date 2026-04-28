@@ -44,4 +44,20 @@ FOR RAILWAY DEPLOYMENT
 (5) Create Procfile with no extension having followin code to tell Railway exactly how to run your FastAPI app.
     web: uvicorn app.main:app --host 0.0.0.0 --port $PORT
 
-     
+(6) Now go to https://railway.app login with GitHub
+
+(7) New Project → Deploy from GitHub Select scrpiopak/multi-lang-voice-agent
+
+(8) Add environment variables 
+    GROQ_API_KEY = your_key
+    PYTHON_VERSION = 3.11
+
+(9) Now check ur backend running or not at https://web-production-378bf.up.railway.app/docs (address provided by railway)    
+
+(10) Now backend running on Railway with above address and we have to change this in our index.html fetch("https://web-production-378bf.up.railway.app/voice")
+
+(11) Deploy your index.html to https://www.pakistanpipes.com/voice/index.html
+
+(12) Now frontend on www.pakistanpipes.com and backend on Railway
+
+(13) ENJOY !!!
