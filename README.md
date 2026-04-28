@@ -1,3 +1,5 @@
+PROJECT INFO. & REQUIREMENTS
+
 (1) static / index.html has GUI code and run in browser, run both GUI frontend and backend and start recording message
 
 (2) app / -- it is banckend application main.py -> receive/send voice message from GUI frontend sst.py -> convert from speech to text translate.py -> translate text into english from any language and again from english to any language llm.py -> answer the query in english tts.py -> convert text to speech
